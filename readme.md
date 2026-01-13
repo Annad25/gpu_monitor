@@ -26,7 +26,7 @@ It handles **isolation detection** (figuring out *"am I down or is the network d
 ### Clone the Repository
 
 ```bash
-git clone <https://github.com/Annad25/gpu_monitor>
+git clone <(https://github.com/Annad25/WatchDog)>
 cd gpu-monitor
 ```
 
