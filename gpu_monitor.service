@@ -1,0 +1,31 @@
+[Unit]
+Description=GPU Health Monitor Service
+# Wait for network to be fully online before starting
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+# --- CONFIGURATION REQUIRED ---
+# 1. User: Change to your Linux username
+User=your_username
+
+# 2. WorkingDirectory: The folder containing your script and .env file
+WorkingDirectory=/path/to/gpu_monitor
+
+# 3. ExecStart: Path to your Python venv executable and the script
+# Format: /path/to/.venv/bin/python monitor.py
+ExecStart=/path/to/gpu_monitor/.venv/bin/python monitor.py
+
+# --- END CONFIGURATION ---
+
+# Restart automatically if the script crashes
+Restart=always
+# Wait 10 seconds before restarting to prevent rapid looping
+RestartSec=10
+
+# Logging (View with: journalctl -u gpu_monitor -f)
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

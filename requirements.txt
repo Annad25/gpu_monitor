@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+httpx
+motor
+dnspython
+certifi
+pymongo
+# python-dotenv
